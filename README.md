@@ -11,8 +11,8 @@ The package doesn't use bootstrap, uses sass and css grid to creare a really sim
     % npm i react-lightweight-grid
 
 ## Usage
-``` js
-    import React from 'React'
+```javascript
+import React from 'React'
     import {Grid, Col, Row} from 'react-lightweight-grid';
     const gridTest = () => (
         <Grid>
@@ -46,10 +46,11 @@ The package doesn't use bootstrap, uses sass and css grid to creare a really sim
             </Row>
         </Grid>
     )
-    ```
 
-    ## Support
-    THis component it's planned to implement more features, stay tunned.
+```
+
+## Support
+This component it's planned to implement more features, stay tunned.
 
 [1]: https://facebook.github.io/react/
 [2]: https://www.omwdesign.eu

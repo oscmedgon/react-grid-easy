@@ -1,7 +1,11 @@
 {
-    "presets": ["env"],
-    "plugins": [
-        "transform-object-rest-spread",
-        "transform-react-jsx"
-    ]
+	"presets": [
+		"env",
+		"react",
+		"stage-0"
+	],
+	"compact": true,
+	"plugins": [
+		"transform-decorators-legacy"
+	]
 }

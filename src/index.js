@@ -1,1 +1,5 @@
-export {Grid, Row, Col} from './components'
+import './styles.scss'
+
+export Col from "./Col";
+export Row from "./Row";
+export Grid from "./Grid";

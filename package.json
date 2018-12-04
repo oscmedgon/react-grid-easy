@@ -1,0 +1,39 @@
+{
+  "name": "react-lightweight-grid",
+  "version": "1.0.0",
+  "description": "A react grid system using css grid",
+  "main": "build/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oscmedgon/react-lightweight-grid"
+  },
+  "peerDependencies": {
+    "react": "^16.6.3"
+  },
+  "scripts": {
+    "start": "webpack --watch",
+    "build": "webpack"
+  },
+  "author": {
+    "name": "oscmedgon"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.4.0",
+    "webpack": "^4.12.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.4.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^1.0.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack-cli": "^3.0.4"
+  }
+}

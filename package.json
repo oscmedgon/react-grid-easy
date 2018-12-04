@@ -1,6 +1,6 @@
 {
   "name": "react-lightweight-grid",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A react grid system using css grid",
   "main": "build/index.js",
   "repository": {
@@ -23,6 +23,7 @@
     "webpack": "^4.12.0"
   },
   "devDependencies": {
+    "autoprefixer": "^9.4.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^9.0.0",
@@ -33,8 +34,8 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^1.0.1",
+    "node-sass": "^4.10.0",
     "postcss-loader": "^3.0.0",
-    "autoprefixer": "^9.4.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack-cli": "^3.0.4"

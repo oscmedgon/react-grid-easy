@@ -12,21 +12,21 @@ export default class Col extends Component {
         };
         const { xs, sm, md, lg, xsOffset, smOffset, mdOffset, lgOffset } = this.props;
         if (xs)
-            params.col.className += (' col-xs-' + xs);
+            params.col.className += (' rlg-col-xs-' + xs);
         if (sm)
-            params.col.className += (' col-sm-' + sm);
+            params.col.className += (' rlg-col-sm-' + sm);
         if (md)
-            params.col.className += (' col-md-' + md);
+            params.col.className += (' rlg-col-md-' + md);
         if (lg)
-            params.col.className += (' col-lg-' + lg);
+            params.col.className += (' rlg-col-lg-' + lg);
         if (xsOffset)
-            params.offset.className += (' col-xs-offset-' + xsOffset);
+            params.offset.className += (' rlg-col-xs-offset-' + xsOffset);
         if (smOffset)
-            params.offset.className += (' col-sm-offset-' + smOffset);
+            params.offset.className += (' rlg-col-sm-offset-' + smOffset);
         if (mdOffset)
-            params.offset.className += (' col-md-offset-' + mdOffset);
+            params.offset.className += (' rlg-col-md-offset-' + mdOffset);
         if (lgOffset)
-            params.offset.className += (' col-lg-offset-' + lgOffset);
+            params.offset.className += (' rlg-col-lg-offset-' + lgOffset);
         return ([
             <section key='offset' {...params.offset} />,
             <section key='col' {...params.col}>

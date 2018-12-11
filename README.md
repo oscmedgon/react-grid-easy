@@ -1,6 +1,6 @@
 react-lightweight-grid
 
-Component for [React][1] to create a grid system structure in a project. It is developed by [oscmedgon][2]. There is no demo version at this moment, star the repo to stay tunned.
+Component for [React][1] to create a grid system structure in a project. It is developed by [oscmedgon][2]. There is no demo version at this moment, watch the repo to stay tunned.
 
 > The grid structure helps developing a responsive site without tons of css.
 

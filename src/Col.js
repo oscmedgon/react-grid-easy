@@ -52,5 +52,5 @@ Col.propTypes = {
 };
 
 Col.defaultProps = {
-    className = ''
+    className: ''
 };

@@ -17,5 +17,5 @@ Row.propTypes = {
 };
 
 Row.defaultProps = {
-    className = ''
+    className: ''
 };

@@ -18,5 +18,5 @@ Grid.propTypes = {
 };
 
 Grid.defaultProps = {
-    className = ''
+    className: ''
 };

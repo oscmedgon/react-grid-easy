@@ -8,7 +8,7 @@ The package doesn't use bootstrap, uses sass and css grid to creare a really sim
 
 ## Installation
 
-    % npm i react-lightweight-grid
+    $ npm i react-lightweight-grid
 
 ## Usage
 ```javascript

@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 export default class Col extends Component {
     render() {
         const params = {
             col: {
                 style: this.props.style,
-                className: ''
+                className: this.props.className
             },
             offset: {
                 className: ''
@@ -35,3 +37,20 @@ export default class Col extends Component {
         ]);
     }
 }
+
+Col.propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node.isRequired,
+    xs: PropTypes.string,
+    sm: PropTypes.string,
+    md: PropTypes.string,
+    lg: PropTypes.string,
+    xsOffset: PropTypes.string,
+    smOffset: PropTypes.string,
+    mdOffset: PropTypes.string,
+    lgOffset: PropTypes.string
+};
+
+Col.defaultProps = {
+    className = ''
+};

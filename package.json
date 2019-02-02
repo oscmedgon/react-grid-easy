@@ -20,6 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "react": "^16.4.0",
+    "react-dot-fragment": "^0.2.7",
     "webpack": "^4.12.0"
   },
   "devDependencies": {

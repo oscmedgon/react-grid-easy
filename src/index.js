@@ -1,4 +1,4 @@
-import './sass/_grid.scss'
+import './sass/loader.scss'
 
 export Col from "./components/Col";
 export Row from "./components/Row";

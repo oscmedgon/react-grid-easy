@@ -1,40 +1,23 @@
-$movile: 692px;
-$tablet: 768px;
-$desktop-sm: 1024px;
-$desktop-lg: 1366px;
- 
-// min width
-$mobile-min: 1px;
-$tablet-min: 768px;
-$desktop-sm-min: 1024px;
-$desktop-lg-min: 1366px;
- 
-// max width
-$mobile-max: 767px;
-$tablet-max: 1023px;
-$desktop-sm-max: 1365px;
- 
-.rlg-grid {
+.grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-gap: 21px;
     grid-auto-flow: dense;
-    margin: 0 30px;
-    & :not([class*="col"]) {
+    box-sizing: content-box;
+    & > :not([class*="col"]) {
         grid-column: span 12
     }
-    & .rlg-row {
+    & .row {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
         grid-gap: 21px;
         grid-auto-flow: dense;
         margin: 0;
-        & :not([class*="rlg-col"]) {
+        & > :not([class*="col"]) {
             grid-column: span 12
         }
     }
 }
-
 
 @mixin col-width-small ($size) {
     grid-column: span $size;
@@ -45,80 +28,83 @@ $desktop-sm-max: 1365px;
 @mixin col-offset ($size) {
     grid-column: span $size;
 }
+
 /* Extra small devices (phones, less than 768px) */
 
 /* Small devices (tablets, 768px and up) */
-.rlg-col-xs-1 {
+
+.col-xs-1 {
     @include col-width-small($size: 1);
 }
-.rlg-col-xs-2 {
+.col-xs-2 {
     @include col-width-small($size: 2);
 }
-.rlg-col-xs-3 {
+.col-xs-3 {
     @include col-width-small($size: 3);
 }
-.rlg-col-xs-4 {
+.col-xs-4 {
     @include col-width-small($size: 4);
 }
-.rlg-col-xs-5 {
+.col-xs-5 {
     @include col-width-small($size: 5);
 }
-.rlg-col-xs-6 {
+.col-xs-6 {
     @include col-width-small($size: 6);
 }
-.rlg-col-xs-7 {
+.col-xs-7 {
     @include col-width-small($size: 7);
 }
-.rlg-col-xs-8 {
+.col-xs-8 {
     @include col-width-small($size: 8);
 }
-.rlg-col-xs-9 {
+.col-xs-9 {
     @include col-width-small($size: 9);
 }
-.rlg-col-xs-10 {
+.col-xs-10 {
     @include col-width-small($size: 10);
 }
-.rlg-col-xs-11 {
+.col-xs-11 {
     @include col-width-small($size: 11);
 }
-.rlg-col-xs-12 {
+.col-xs-12 {
     @include col-width-small($size: 12);
 }
+
 @media (min-width: $tablet) {
-    .rlg-col-sm-1 {
+    .col-sm-1 {
         @include col-width-small($size: 1);
     }
-    .rlg-col-sm-2 {
+    .col-sm-2 {
         @include col-width-small($size: 2);
     }
-    .rlg-col-sm-3 {
+    .col-sm-3 {
         @include col-width-small($size: 3);
     }
-    .rlg-col-sm-4 {
+    .col-sm-4 {
         @include col-width-small($size: 4);
     }
-    .rlg-col-sm-5 {
+    .col-sm-5 {
         @include col-width-small($size: 5);
     }
-    .rlg-col-sm-6 {
+    .col-sm-6 {
         @include col-width-small($size: 6);
     }
-    .rlg-col-sm-7 {
+    .col-sm-7 {
         @include col-width-small($size: 7);
     }
-    .rlg-col-sm-8 {
+    .col-sm-8 {
         @include col-width-small($size: 8);
     }
-    .rlg-col-sm-9 {
+    .col-sm-9 {
         @include col-width-small($size: 9);
     }
-    .rlg-col-sm-10 {
+    .col-sm-10 {
         @include col-width-small($size: 10);
     }
-    .rlg-col-sm-11 {
+    .col-sm-11 {
         @include col-width-small($size: 11);
     }
-    .rlg-col-sm-12 {
+    .col-sm-12 {
         @include col-width-small($size: 12);
     }
     .row {
@@ -131,80 +117,80 @@ $desktop-sm-max: 1365px;
     .row {
         justify-content: space-between;
     }
-    .rlg-col-md-1 {
+    .col-md-1 {
         @include col-width-long($size: 1);
     }
-    .rlg-col-md-2 {
+    .col-md-2 {
         @include col-width-long($size: 2);
     }
-    .rlg-col-md-3 {
+    .col-md-3 {
         @include col-width-long($size: 3);
     }
-    .rlg-col-md-4 {
+    .col-md-4 {
         @include col-width-long($size: 4);
     }
-    .rlg-col-md-5 {
+    .col-md-5 {
         @include col-width-long($size: 5);
     }
-    .rlg-col-md-6 {
+    .col-md-6 {
         @include col-width-long($size: 6);
     }
-    .rlg-col-md-7 {
+    .col-md-7 {
         @include col-width-long($size: 7);
     }
-    .rlg-col-md-8 {
+    .col-md-8 {
         @include col-width-long($size: 8);
     }
-    .rlg-col-md-9 {
+    .col-md-9 {
         @include col-width-long($size: 9);
     }
-    .rlg-col-md-10 {
+    .col-md-10 {
         @include col-width-long($size: 10);
     }
-    .rlg-col-md-11 {
+    .col-md-11 {
         @include col-width-long($size: 11);
     }
-    .rlg-col-md-12 {
+    .col-md-12 {
         @include col-width-long($size: 12);
     }
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: $desktop-lg) {
-    .rlg-col-lg-1 {
+    .col-lg-1 {
         @include col-width-long($size: 1);
     }
-    .rlg-col-lg-2 {
+    .col-lg-2 {
         @include col-width-long($size: 2);
     }
-    .rlg-col-lg-3 {
+    .col-lg-3 {
         @include col-width-long($size: 3);
     }
-    .rlg-col-lg-4 {
+    .col-lg-4 {
         @include col-width-long($size: 4);
     }
-    .rlg-col-lg-5 {
+    .col-lg-5 {
         @include col-width-long($size: 5);
     }
-    .rlg-col-lg-6 {
+    .col-lg-6 {
         @include col-width-long($size: 6);
     }
-    .rlg-col-lg-7 {
+    .col-lg-7 {
         @include col-width-long($size: 7);
     }
-    .rlg-col-lg-8 {
+    .col-lg-8 {
         @include col-width-long($size: 8);
     }
-    .rlg-col-lg-9 {
+    .col-lg-9 {
         @include col-width-long($size: 9);
     }
-    .rlg-col-lg-10 {
+    .col-lg-10 {
         @include col-width-long($size: 10);
     }
-    .rlg-col-lg-11 {
+    .col-lg-11 {
         @include col-width-long($size: 11);
     }
-    .rlg-col-lg-12 {
+    .col-lg-12 {
         @include col-width-long($size: 12);
     }
 }
@@ -212,157 +198,182 @@ $desktop-sm-max: 1365px;
 // offset configuration
 
 /* Small devices (tablets, 768px and up) */
-.rlg-col-xs-offset-1 {
+.col-xs-offset-1 {
     @include col-offset($size: 1);
 }
-.rlg-col-xs-offset-2 {
+.col-xs-offset-2 {
     @include col-offset($size: 2);
 }
-.rlg-col-xs-offset-3 {
+.col-xs-offset-3 {
     @include col-offset($size: 3);
 }
-.rlg-col-xs-offset-4 {
+.col-xs-offset-4 {
     @include col-offset($size: 4);
 }
-.rlg-col-xs-offset-5 {
+.col-xs-offset-5 {
     @include col-offset($size: 5);
 }
-.rlg-col-xs-offset-6 {
+.col-xs-offset-6 {
     @include col-offset($size: 6);
 }
-.rlg-col-xs-offset-7 {
+.col-xs-offset-7 {
     @include col-offset($size: 7);
 }
-.rlg-col-xs-offset-8 {
+.col-xs-offset-8 {
     @include col-offset($size: 8);
 }
-.rlg-col-xs-offset-9 {
+.col-xs-offset-9 {
     @include col-offset($size: 9);
 }
-.rlg-col-xs-offset-10 {
+.col-xs-offset-10 {
     @include col-offset($size: 10);
 }
-.rlg-col-xs-offset-11 {
+.col-xs-offset-11 {
     @include col-offset($size: 11);
 }
-.rlg-col-xs-offset-12 {
+.col-xs-offset-12 {
     @include col-offset($size: 12);
 }
 @media (min-width: $tablet) {
-    .rlg-col-sm-offset-1 {
+    .col-sm-offset-1 {
         @include col-offset($size: 1);
     }
-    .rlg-col-sm-offset-2 {
+    .col-sm-offset-2 {
         @include col-offset($size: 2);
     }
-    .rlg-col-sm-offset-3 {
+    .col-sm-offset-3 {
         @include col-offset($size: 3);
     }
-    .rlg-col-sm-offset-4 {
+    .col-sm-offset-4 {
         @include col-offset($size: 4);
     }
-    .rlg-col-sm-offset-5 {
+    .col-sm-offset-5 {
         @include col-offset($size: 5);
     }
-    .rlg-col-sm-offset-6 {
+    .col-sm-offset-6 {
         @include col-offset($size: 6);
     }
-    .rlg-col-sm-offset-7 {
+    .col-sm-offset-7 {
         @include col-offset($size: 7);
     }
-    .rlg-col-sm-offset-8 {
+    .col-sm-offset-8 {
         @include col-offset($size: 8);
     }
-    .rlg-col-sm-offset-9 {
+    .col-sm-offset-9 {
         @include col-offset($size: 9);
     }
-    .rlg-col-sm-offset-10 {
+    .col-sm-offset-10 {
         @include col-offset($size: 10);
     }
-    .rlg-col-sm-offset-11 {
+    .col-sm-offset-11 {
         @include col-offset($size: 11);
     }
-    .rlg-col-sm-offset-12 {
+    .col-sm-offset-12 {
         @include col-offset($size: 12);
     }
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: $desktop-sm) {
-    .rlg-col-md-offset-1 {
+    .col-md-offset-1 {
         @include col-offset($size: 1);
     }
-    .rlg-col-md-offset-2 {
+    .col-md-offset-2 {
         @include col-offset($size: 2);
     }
-    .rlg-col-md-offset-3 {
+    .col-md-offset-3 {
         @include col-offset($size: 3);
     }
-    .rlg-col-md-offset-4 {
+    .col-md-offset-4 {
         @include col-offset($size: 4);
     }
-    .rlg-col-md-offset-5 {
+    .col-md-offset-5 {
         @include col-offset($size: 5);
     }
-    .rlg-col-md-offset-6 {
+    .col-md-offset-6 {
         @include col-offset($size: 6);
     }
-    .rlg-col-md-offset-7 {
+    .col-md-offset-7 {
         @include col-offset($size: 7);
     }
-    .rlg-col-md-offset-8 {
+    .col-md-offset-8 {
         @include col-offset($size: 8);
     }
-    .rlg-col-md-offset-9 {
+    .col-md-offset-9 {
         @include col-offset($size: 9);
     }
-    .rlg-col-md-offset-10 {
+    .col-md-offset-10 {
         @include col-offset($size: 10);
     }
-    .rlg-col-md-offset-11 {
+    .col-md-offset-11 {
         @include col-offset($size: 11);
     }
-    .rlg-col-md-offset-12 {
+    .col-md-offset-12 {
         @include col-offset($size: 12);
     }
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: $desktop-lg) {
-    .rlg-col-lg-offset-1 {
+    .col-lg-offset-1 {
         @include col-offset($size: 1);
     }
-    .rlg-col-lg-offset-2 {
+    .col-lg-offset-2 {
         @include col-offset($size: 2);
     }
-    .rlg-col-lg-offset-3 {
+    .col-lg-offset-3 {
         @include col-offset($size: 3);
     }
-    .rlg-col-lg-offset-4 {
+    .col-lg-offset-4 {
         @include col-offset($size: 4);
     }
-    .rlg-col-lg-offset-5 {
+    .col-lg-offset-5 {
         @include col-offset($size: 5);
     }
-    .rlg-col-lg-offset-6 {
+    .col-lg-offset-6 {
         @include col-offset($size: 6);
     }
-    .rlg-col-lg-offset-7 {
+    .col-lg-offset-7 {
         @include col-offset($size: 7);
     }
-    .rlg-col-lg-offset-8 {
+    .col-lg-offset-8 {
         @include col-offset($size: 8);
     }
-    .rlg-col-lg-offset-9 {
+    .col-lg-offset-9 {
         @include col-offset($size: 9);
     }
-    .rlg-col-lg-offset-10 {
+    .col-lg-offset-10 {
         @include col-offset($size: 10);
     }
-    .rlg-col-lg-offset-11 {
+    .col-lg-offset-11 {
         @include col-offset($size: 11);
     }
-    .rlg-col-lg-offset-12 {
+    .col-lg-offset-12 {
         @include col-offset($size: 12);
+    }
+}
+
+/* Case xs,sm,md,lg equal to 0 */
+
+@media (min-width: $mobile-min) and (max-width: $mobile-max) {
+    .col-xs-0, .col-xs-offset-0 {
+        display: none;
+    }
+}
+
+@media (min-width: $tablet-min) and (max-width: $tablet-max) {
+    .col-sm-0, .col-sm-offset-0 {
+        display: none;
+    }
+}
+@media (min-width: $desktop-sm-min) and (max-width: $desktop-sm-max) {
+    .col-md-0, .col-md-offset-0 {
+        display: none;
+    }
+}
+
+@media (min-width: $desktop-lg-min){
+    .col-lg-0, .col-lg-offset-0 {
+        display: none;
     }
 }

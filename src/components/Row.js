@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class Grid extends Component {
+export default class Row extends Component {
     render() {
         const params = {
-            className: `rlg-grid ${this.props.className}`
-        }
+            className: `row ${this.props.className}`
+        };
         return (<section {...params}>
             {this.props.children}
         </section>);
     }
 }
-
-Grid.propTypes = {
+Row.propTypes = {
     className: PropTypes.string,
     children: PropTypes.node.isRequired
 };
 
-Grid.defaultProps = {
+Row.defaultProps = {
     className: ''
 };

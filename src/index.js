@@ -1,5 +1,6 @@
-import './styles.scss'
+import './sass/_grid.scss'
 
-export Col from "./Col";
-export Row from "./Row";
-export Grid from "./Grid";
+export Col from "./components/Col";
+export Row from "./components/Row";
+export Grid from "./components/Grid";
+export Container from "./components/Container";

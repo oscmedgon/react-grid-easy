@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Fragment from 'react-dot-fragment';
 
 export default class Col extends Component {
     render() {
@@ -13,29 +12,45 @@ export default class Col extends Component {
                 className: ''
             }
         };
-        const { xs, sm, md, lg, xsOffset, smOffset, mdOffset, lgOffset } = this.props;
-        if (xs)
+        const {xs, sm, md, lg} = this.props;
+        let {xsOffset, smOffset, mdOffset, lgOffset} = this.props;
+        xsOffset = xsOffset || '0';
+        smOffset = smOffset || xsOffset;
+        mdOffset = mdOffset || smOffset || xsOffset;
+        lgOffset = lgOffset || mdOffset || smOffset || xsOffset;
+
+        if (xs) {
             params.col.className += (' col-xs-' + xs);
-        if (sm)
+        }
+        if (sm) {
             params.col.className += (' col-sm-' + sm);
-        if (md)
+        }
+        if (md) {
             params.col.className += (' col-md-' + md);
-        if (lg)
+        }
+        if (lg) {
             params.col.className += (' col-lg-' + lg);
-        if (xsOffset)
+        }
+        if (xsOffset) {
             params.offset.className += (' col-xs-offset-' + xsOffset);
-        if (smOffset)
+        }
+        if (smOffset) {
             params.offset.className += (' col-sm-offset-' + smOffset);
-        if (mdOffset)
+        }
+        if (mdOffset) {
             params.offset.className += (' col-md-offset-' + mdOffset);
-        if (lgOffset)
+        }
+        if (lgOffset) {
             params.offset.className += (' col-lg-offset-' + lgOffset);
-        return (<Fragment>
-            <section key='offset' {...params.offset} />
-            <section key='col' {...params.col}>
-                {this.props.children}
-            </section>
-        </Fragment>);
+        }
+        return (
+            <Fragment>
+                <section key='offset' {...params.offset} />
+                <section key='col' {...params.col}>
+                    {this.props.children}
+                </section>
+            </Fragment>
+        );
     }
 }
 

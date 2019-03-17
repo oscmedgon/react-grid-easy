@@ -17,13 +17,13 @@ export default class Grid extends Component {
             </section>
         );
     }
+    static propTypes = {
+        className: PropTypes.string,
+        children: PropTypes.node.isRequired
+    };
+
+    static defaultProps = {
+        className: ''
+    };
 }
 
-Grid.propTypes = {
-    className: PropTypes.string,
-    children: PropTypes.node.isRequired
-};
-
-Grid.defaultProps = {
-    className: ''
-};

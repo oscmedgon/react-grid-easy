@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 
 export default class Row extends Component {
     render() {
+        const {revertMargin, ...rest} = this.props;
         const params = {
-            className: `row ${this.props.className}`
+            ...rest,
+            className: `row ${revertMargin ? 'no-margin' : ''} ${className}`
         };
-        return (<section {...params}>
-            {this.props.children}
-        </section>);
+        return (
+            <section {...params} />
+        );
     }
 }
 Row.propTypes = {

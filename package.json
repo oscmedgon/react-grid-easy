@@ -1,6 +1,6 @@
 {
   "name": "react-lightweight-grid",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A react grid system using css grid",
   "main": "build/index.js",
   "repository": {

@@ -2,7 +2,6 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-gap: 21px;
-    grid-auto-flow: dense;
     box-sizing: content-box;
     & > :not([class*="col"]) {
         grid-column: span 12
@@ -11,10 +10,24 @@
         display: grid;
         grid-template-columns: repeat(12, 1fr);
         grid-gap: 21px;
-        grid-auto-flow: dense;
-        margin: 0;
         & > :not([class*="col"]) {
             grid-column: span 12
+        }
+    }
+}
+.container {
+    & .row {
+        margin: 0 -20px;
+        &.no-margin {
+            margin: 0;
+        }
+    }
+    &.container-fluid {
+        & .row {
+            margin: 0 -30px;
+            &.no-margin {
+                margin: 0;
+            }
         }
     }
 }
@@ -108,7 +121,7 @@
         @include col-width-small($size: 12);
     }
     .row {
-      justify-content: center;
+        justify-content: center;
     }
 }
 

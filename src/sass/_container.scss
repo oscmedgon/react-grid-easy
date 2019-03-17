@@ -1,0 +1,29 @@
+.container {
+    padding-left: 20px;
+    padding-right: 20px;
+    &.container-fluid {
+        padding-left: 30px;
+        padding-right: 30px;
+        & > .grid-parent {
+            margin-left: -30px;
+            margin-right: -30px;
+            padding-left: 30px;
+            padding-right: 30px;
+            & > .grid {
+                max-width: unset;
+                margin-right: unset;
+                margin-left: unset;
+            }
+        }
+    }
+    & .grid-parent {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        & .grid {
+            max-width: 984px;
+            margin: auto;
+        }
+    }
+}

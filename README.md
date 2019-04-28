@@ -11,28 +11,35 @@ The package doesn't use bootstrap, uses sass and css grid to creare a really sim
 
 ## Installation
 
-    $ npm i react-lightweight-grid
+```$ npm i react-lightweight-grid```
 
 ## Components API
 
 ### Container
 The Container component is the root for a new grid it has three main props
+
+
 | Prop      	|  value type 	| Description                                 	|
 |-----------	|-------------	|---------------------------------------------	|
 | fluid     	| Boolean     	| Converts all the dependant grids in fluid*  	|
 | className 	| string      	| A className for the container               	|
 | children  	| React node  	| Content to be rendered inside the container 	|
+
+
 * Only affects to direct child grids.
 
 ### Grid
 The Grid component is where the grid system starts to work, important advice, *any* component direct child of a grid that it's not a Col component will use all the columns, for example, if you put a <h3> tag and a <p> both of them will take all the space, the grid onlu affects to the Col component.
+    
 | Prop      	|  value type 	| Description                                 	|
 |-----------	|-------------	|---------------------------------------------	|
 | className 	| string      	| A className for the container               	|
 | children  	| React node  	| Content to be rendered inside the container 	|
+
     
 ### Col
 The Col component is a element inside the grid, with a series of props you can configure the size in the different screen sizes.
+
 | Prop      	|  value type 	| Description                                 	|
 |-----------	|-------------	|---------------------------------------------	|
 | className 	| string      	| A className for the column               	    |
@@ -45,6 +52,7 @@ The Col component is a element inside the grid, with a series of props you can c
 | smOffset  	| String      	| Determines the empty space before the column  |
 | mdOffset  	| String  	    | Determines the empty space before the column  |
 | lgOffset  	| String      	| Determines the empty space before the column  |
+
 **IMPORTANT note**
 If you dont pass 0 in a a screen size the column will not show.
 ## Usage

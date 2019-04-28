@@ -29,7 +29,7 @@ The Container component is the root for a new grid it has three main props
 * Only affects to direct child grids.
 
 ### Grid
-The Grid component is where the grid system starts to work, important advice, *any* component direct child of a grid that it's not a Col component will use all the columns, for example, if you put a <h3> tag and a <p> both of them will take all the space, the grid onlu affects to the Col component.
+The Grid component is where the grid system starts to work, important advice, **any** component direct child of a grid that it's not a Col component will use all the columns, for example, if you put a `<h3>` tag and a `<p>` both of them will take all the space, the grid onlu affects to the Col component.
     
     
 | Prop      	|  value type 	| Description                                 	|

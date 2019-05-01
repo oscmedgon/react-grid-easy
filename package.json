@@ -10,16 +10,23 @@
     "peerDependencies": {
         "react": "^16.8.3"
     },
+    "gh-pages-deploy": {
+        "staticpath": "demo/dist",
+        "cname": "grid.devosc.com",
+        "commit": "a custom commit message",
+        "noprompt": false
+    },
     "scripts": {
         "sass": "gulp sass",
         "dist": "gulp dist",
         "demo": "gulp demo",
+        "deploy": "gh-pages-deploy",
         "dev": "npm-run-all --parallel dev:*",
         "dev:sass": "gulp sass:watch",
         "dev:dist": "gulp dist:watch",
         "dev:demo": "webpack --watch",
         "dev:server": "gulp server",
-        "build": "npm run sass && npm run dist && npm run demo"
+        "build": "npm run sass && npm run dist && npm run demo && npm run deploy"
     },
     "author": {
         "name": "oscmedgon"

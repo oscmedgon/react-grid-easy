@@ -17,8 +17,7 @@
         "dev": "npm-run-all --parallel dev:*",
         "dev:sass": "gulp sass:watch",
         "dev:dist": "gulp dist:watch",
-        "dev:demo": "gulp demo:watch",
-        "dev:server": "gulp server",
+        "dev:server": "webpack",
         "build": "npm run sass && npm run dist && npm run demo"
     },
     "author": {
@@ -49,6 +48,7 @@
         "@babel/plugin-syntax-import-meta": "^7.0.0",
         "@babel/preset-env": "^7.4.4",
         "@babel/preset-react": "^7.0.0",
+        "babelify": "^10.0.0",
         "css-loader": "^1.0.1",
         "gulp": "^4.0.1",
         "gulp-babel": "^8.0.0",

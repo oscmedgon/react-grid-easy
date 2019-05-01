@@ -1,50 +1,34 @@
 var path = require('path');
 module.exports = {
     mode: 'production',
-    entry: './lib/index.js',
+    entry: './demo/index.jx',
     output: {
-      path: path.resolve(__dirname, 'build'),
+      path: path.resolve(__dirname, 'demo'),
       filename: 'index.js',
-      libraryTarget: 'commonjs2' // THIS IS THE MOST IMPORTANT LINE! :mindblow: I wasted more than 2 days until realize this was the line most important in all this guide.
     },
     module: {
         rules: [
-          {
-            test: /\.js$/,
-            include: path.resolve(__dirname, 'src'),
-            exclude: /(node_modules|bower_components|build)/,
-            loader: 'babel-loader'
-          },
-          {
-            test: /\.scss$/,
-            use: [
-                {
-                    loader: 'style-loader' // creates style nodes from JS strings
+            {
+                test: /\.js$/,
+                include: path.resolve(__dirname, 'src'),
+                exclude: /(node_modules|bower_components|build)/,
+                loader: 'babel-loader'
                 },
-                {
-                    loader: 'css-loader',
-                    options: {
-                        sourceMap: true,
-                        minimize: true
-                    } // translates CSS into CommonJS
-                },
-                {
-                    loader: 'postcss-loader',
-                    options: {
-                        sourceMap: true
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: 'style-loader' // creates style nodes from JS strings
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                            minimize: true
+                        } // translates CSS into CommonJS
                     }
-                },
-                {
-                    loader: 'sass-loader',
-                    options: {
-                        sourceMap: false
-                    }
-                }
-            ]
-        }
+                ]
+            }
         ]
-      },
-  externals: {
-    'react': 'commonjs react' 
-  }
+      }
 };

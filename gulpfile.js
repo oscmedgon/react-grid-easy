@@ -9,6 +9,7 @@ sass.compiler = require('node-sass');
 
 const babelConfig = require('./babelConfig');
 const browserify = require('gulp-browserify');
+const babelify = require('babelify')
 
 // ONE TIME TASKS
 // SASS TRANSPILE
@@ -33,7 +34,7 @@ gulp.task('demo', function() {
             insertGlobals : true,
             debug : true
         }))
-        .pipe(gulp.dest('./demo'))
+        .pipe(gulp.dest('./demo/js'))
 });
 
 // WATCH TASKS

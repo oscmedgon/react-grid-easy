@@ -27,7 +27,7 @@
         "dev:demo": "webpack --watch",
         "dev:server": "gulp server",
         "build": "npm run sass && npm run dist && npm run demo && npm run deploy",
-        "prebuild": "rm ./demo/dist/*"
+        "prebuild": "npm i && rm ./demo/dist/*"
     },
     "author": {
         "name": "oscmedgon"

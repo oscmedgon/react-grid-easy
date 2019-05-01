@@ -27,8 +27,5 @@ module.exports = {
     plugins: [htmlWebpackPlugin],
     resolve: {
         extensions: [".js", ".jsx"]
-    },
-    devServer: {
-        port: 3001
     }
 };

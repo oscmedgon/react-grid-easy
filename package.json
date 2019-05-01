@@ -20,7 +20,7 @@
         "sass": "gulp sass",
         "dist": "gulp dist",
         "demo": "webpack",
-        "deploy": "gh-pages-deploy",
+        "deploy": "./deployGH.sh",
         "dev": "npm-run-all --parallel dev:*",
         "dev:sass": "gulp sass:watch",
         "dev:dist": "gulp dist:watch",

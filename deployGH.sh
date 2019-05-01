@@ -8,7 +8,7 @@ BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
 git checkout gh-pages
 rm index.html main.js
-git merge $BRANCH gh-pages
+git merge $BRANCH
 ls -la
 
 rm -rf ./lib/ *.md ./*.js ./sass

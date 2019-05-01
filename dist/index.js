@@ -1,7 +1,5 @@
 "use strict";
 
-require("./index.css");
-
 var _Col = _interopRequireDefault(require("./components/Col"));
 
 var _Row = _interopRequireDefault(require("./components/Row"));

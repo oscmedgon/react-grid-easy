@@ -1,59 +1,34 @@
-var path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-const APP_DIR =path.resolve(__dirname, 'demo')
-
+const path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const htmlWebpackPlugin = new HtmlWebpackPlugin({
+    template: path.join(__dirname, "demo/index.html"),
+    filename: "./index.html"
+});
 module.exports = {
-    mode: 'production',
-    entry: './demo/index.jsx',
+    mode: 'development',
+    entry: path.join(__dirname, "demo/index.jsx"),
     output: {
-        path: APP_DIR,
-        filename: 'index.js',
+        publicPath: '/',
+        path: path.join(__dirname, "demo/dist")
     },
     module: {
         rules: [
             {
-                test: /\.js$/,
-                include: APP_DIR,
-                exclude: /(node_modules|bower_components|build)/,
-                loader: 'babel-loader'
-                },
+                test: /\.(js|jsx)$/,
+                use: "babel-loader",
+                exclude: /node_modules/
+            },
             {
                 test: /\.css$/,
-                use: [
-                    {
-                        loader: 'style-loader' // creates style nodes from JS strings
-                    },
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: true,
-                            minimize: true
-                        } // translates CSS into CommonJS
-                    }
-                ]
+                use: ["style-loader", "css-loader"]
             }
         ]
     },
+    plugins: [htmlWebpackPlugin],
     resolve: {
-        modules: [APP_DIR, 'node_modules'],
-        extensions: ['.js', '.json', '.jsx', '.css'],
+        extensions: [".js", ".jsx"]
     },
-    target: 'web',
-    devtool: 'source-map',
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
-        compress: true,
-        port: 3000,
-        hot: true,
-        historyApiFallback: true,
-        open: true
-    },
-    plugins: [
-      new HtmlWebpackPlugin({
-          title: 'React Lightweight Grid demo',
-          template: path.join(__dirname, 'demo', 'index.html'),
-          filename: 'index.html',
-      })
-    ]
+        port: 3001
+    }
 };

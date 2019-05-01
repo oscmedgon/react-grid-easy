@@ -27,6 +27,7 @@ gulp.task('dist', () =>
 );
 
 // BABEL DEMO TRANSPILE
+// USING WEBPACK INSTEAD
 gulp.task('demo', function() {
     // Single entry point to browserify
     gulp.src('src/js/index.jsx')
@@ -59,7 +60,7 @@ gulp.task('demo:watch', () => {
 
 // DEMO DEV SERVER
 gulp.task('server', () => {
-    gulp.src('demo')	// <-- your app folder
+    gulp.src('demo/dist')	// <-- your app folder
         .pipe(server({
             livereload: true,
             open: true,

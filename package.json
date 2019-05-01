@@ -19,7 +19,7 @@
     "scripts": {
         "sass": "gulp sass",
         "dist": "gulp dist",
-        "demo": "gulp demo",
+        "demo": "webpack",
         "deploy": "gh-pages-deploy",
         "dev": "npm-run-all --parallel dev:*",
         "dev:sass": "gulp sass:watch",

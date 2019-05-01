@@ -14,7 +14,7 @@ rm -rf ./lib/ *.md ./*.js ./sass
 mv -F ./demo/dist/* .
 rm -rf ./demo/
 
-git add .
+git add *
 git commit -m "Deploy github pages"
 git push
 git checkout $BRANCH

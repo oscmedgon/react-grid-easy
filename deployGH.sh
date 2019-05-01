@@ -11,7 +11,7 @@ rm index.html main.js
 git merge $BRANCH
 
 rm -rf ./lib/ *.md ./*.js ./sass
-mv -F ./demo/dist/* .
+mv -f ./demo/dist/* .
 rm -rf ./demo/
 
 git add *

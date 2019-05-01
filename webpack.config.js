@@ -9,7 +9,8 @@ module.exports = {
     entry: path.join(__dirname, "demo/index.jsx"),
     output: {
         publicPath: '/',
-        path: path.join(__dirname, "demo/dist")
+        path: path.join(__dirname, "demo/dist"),
+        filename: 'bundle.[hash].js'
     },
     module: {
         rules: [

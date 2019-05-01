@@ -9,14 +9,13 @@ BRANCH=$(git rev-parse --abbrev-ref HEAD)
 git checkout gh-pages
 rm index.html main.js
 git merge $BRANCH
-ls -la
-
-rm -rf ./lib/ *.md ./*.js ./sass
-mv -F ./demo/dist/* .
-rm -rf ./demo/
-
-git add .
-git commit -m "Deploy github pages"
-git push
-git checkout $BRANCH
-exit
+#
+#rm -rf ./lib/ *.md ./*.js ./sass
+#mv -F ./demo/dist/* .
+#rm -rf ./demo/
+#
+#git add .
+#git commit -m "Deploy github pages"
+#git push
+#git checkout $BRANCH
+#exit

@@ -13,6 +13,10 @@ export default class App extends Component {
         })
     };
 
+    handleCosa = () => {
+        console.log('cosa')
+    };
+
     handleChangeCheckbox = ({target: {checked, id}}) => {
         this.setState({
             [id]: checked

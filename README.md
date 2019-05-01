@@ -1,7 +1,6 @@
 ## react-lightweight-grid
-
 A React grid layout system using css grid developed by [oscmedgon][2] to be used on [React][1] projects, it's easy to implement.
-
+You can see and test the library at the [demo][3]
 ### Dependencies
 The only real dependencie it's a a React version 16.2 or newer.
 
@@ -113,3 +112,4 @@ This component it's planned to implement more features, stay tunned.
 
 [1]: https://facebook.github.io/react/
 [2]: https://www.omwdesign.eu
+[3]: https://grid.devosc.com

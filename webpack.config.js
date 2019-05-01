@@ -1,16 +1,20 @@
 var path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const APP_DIR =path.resolve(__dirname, 'demo')
+
 module.exports = {
     mode: 'production',
-    entry: './demo/index.jx',
+    entry: './demo/index.jsx',
     output: {
-      path: path.resolve(__dirname, 'demo'),
-      filename: 'index.js',
+        path: APP_DIR,
+        filename: 'index.js',
     },
     module: {
         rules: [
             {
                 test: /\.js$/,
-                include: path.resolve(__dirname, 'src'),
+                include: APP_DIR,
                 exclude: /(node_modules|bower_components|build)/,
                 loader: 'babel-loader'
                 },
@@ -30,5 +34,26 @@ module.exports = {
                 ]
             }
         ]
-      }
+    },
+    resolve: {
+        modules: [APP_DIR, 'node_modules'],
+        extensions: ['.js', '.json', '.jsx', '.css'],
+    },
+    target: 'web',
+    devtool: 'source-map',
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        port: 3000,
+        hot: true,
+        historyApiFallback: true,
+        open: true
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+          title: 'React Lightweight Grid demo',
+          template: path.join(__dirname, 'demo', 'index.html'),
+          filename: 'index.html',
+      })
+    ]
 };

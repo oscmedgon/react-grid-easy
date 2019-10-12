@@ -1,50 +1,29 @@
-var path = require('path');
+const path = require('path');
+
 module.exports = {
-    mode: 'production',
-    entry: './src/index.js',
+    mode: 'development',
+    entry: path.join(__dirname, "src/index.js"),
     output: {
-      path: path.resolve(__dirname, 'build'),
-      filename: 'index.js',
-      libraryTarget: 'commonjs2' // THIS IS THE MOST IMPORTANT LINE! :mindblow: I wasted more than 2 days until realize this was the line most important in all this guide.
+        path: path.resolve('lib'),
+        library: 'reactEasyGrid',
+        libraryTarget: 'umd',
+        filename: process.env.NODE_ENV === 'production' ? 'index.min.js' : 'index.js',
+        globalObject: 'this'
     },
     module: {
         rules: [
-          {
-            test: /\.js$/,
-            include: path.resolve(__dirname, 'src'),
-            exclude: /(node_modules|bower_components|build)/,
-            loader: 'babel-loader'
-          },
-          {
-            test: /\.scss$/,
-            use: [
-                {
-                    loader: 'style-loader' // creates style nodes from JS strings
-                },
-                {
-                    loader: 'css-loader',
-                    options: {
-                        sourceMap: true,
-                        minimize: true
-                    } // translates CSS into CommonJS
-                },
-                {
-                    loader: 'postcss-loader',
-                    options: {
-                        sourceMap: true
-                    }
-                },
-                {
-                    loader: 'sass-loader',
-                    options: {
-                        sourceMap: false
-                    }
-                }
-            ]
-        }
+            {
+                test: /\.(js|jsx)$/,
+                use: "babel-loader",
+                exclude: /node_modules/
+            },
+            {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"]
+            }
         ]
-      },
-  externals: {
-    'react': 'commonjs react' 
-  }
+    },
+    resolve: {
+        extensions: [".js", ".jsx"]
+    }
 };

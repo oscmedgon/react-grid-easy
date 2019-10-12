@@ -21,6 +21,9 @@ module.exports = function(grunt) {
                     'build/index.html': ['demo/index.html'],
                     'build/main.css': ['lib/main.css']
                 }
+            },
+            deploy: {
+                'build/CNAME': ['CNAME'],
             }
         },
         browserify: {
@@ -90,9 +93,9 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('build', ['clean:build', 'copy', 'browserify']);
+    grunt.registerTask('build', ['clean:build', 'copy:demo', 'browserify']);
     grunt.registerTask('serve', ['build', 'connect', 'watch']);
-    grunt.registerTask('deploy', ['build', 'buildcontrol']);
+    grunt.registerTask('deploy', ['build', 'copy:deploy', 'buildcontrol']);
     grunt.registerTask('dist', ['clean:lib', 'sass']);
     grunt.registerTask('default', ['dist']);
 };

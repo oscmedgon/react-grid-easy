@@ -1,16 +1,14 @@
 const path = require('path');
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const htmlWebpackPlugin = new HtmlWebpackPlugin({
-    template: path.join(__dirname, "demo/index.html"),
-    filename: "./index.html"
-});
+
 module.exports = {
     mode: 'development',
-    entry: path.join(__dirname, "demo/index.jsx"),
+    entry: path.join(__dirname, "src/index.js"),
     output: {
-        publicPath: '/',
-        path: path.join(__dirname, "demo/dist"),
-        filename: 'bundle.[hash].js'
+        path: path.resolve('lib'),
+        library: 'reactEasyGrid',
+        libraryTarget: 'umd',
+        filename: process.env.NODE_ENV === 'production' ? 'index.min.js' : 'index.js',
+        globalObject: 'this'
     },
     module: {
         rules: [
@@ -25,7 +23,6 @@ module.exports = {
             }
         ]
     },
-    plugins: [htmlWebpackPlugin],
     resolve: {
         extensions: [".js", ".jsx"]
     }

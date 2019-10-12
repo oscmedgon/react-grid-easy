@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {Container, Grid, Col, Row} from '../dist'
+import {Container, Grid, Col, Row} from '../lib'
 
 export default class App extends Component {
     state = {

@@ -10,8 +10,8 @@ git checkout gh-pages
 rm index.html main.js
 git merge $BRANCH -X theirs
 
-rm -rf ./lib/ *.md ./*.js ./sass
-mv -f ./demo/dist/* .
+rm -rf ./src/ *.md ./*.js ./sass
+mv -f ./demo/lib/* .
 rm -rf ./demo/
 
 git add *

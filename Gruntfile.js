@@ -23,7 +23,8 @@ module.exports = function(grunt) {
                 }
             },
             deploy: {
-                'build/CNAME': ['CNAME'],
+                src: 'CNAME',
+                dest: 'build/'
             }
         },
         browserify: {

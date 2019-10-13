@@ -1,7 +1,6 @@
 .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-gap: 21px;
     box-sizing: content-box;
     & > :not([class*="col"]) {
         grid-column: span 12
@@ -9,7 +8,6 @@
     & .row {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
-        grid-gap: 21px;
         & > :not([class*="col"]) {
             grid-column: span 12
         }

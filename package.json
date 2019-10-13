@@ -1,17 +1,18 @@
 {
     "name": "react-easy-grid",
-    "version": "1.1.4",
+    "version": "1.0.0",
     "description": "A react grid system using css grid",
-    "main": "lib/reactEasyGrid.js",
+    "main": "lib/index.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/oscmedgon/react-easy-grid"
     },
+    "private": false,
     "directories": {
         "lib": "lib"
     },
     "peerDependencies": {
-        "react": "^16.8.3"
+        "react": "^16.10.2"
     },
     "gh-pages-deploy": {
         "staticpath": "demo/dist",

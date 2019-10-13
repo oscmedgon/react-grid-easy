@@ -4,7 +4,9 @@ import {Container, Grid, Col, Row} from '../lib'
 export default class App extends Component {
     state = {
         elements: 10,
-        fluid: true
+        fluid: true,
+        revertMargin: false,
+        gap: 21
     };
 
     handleChangeInput = ({target: {value, id}}) => {
@@ -20,16 +22,27 @@ export default class App extends Component {
     };
 
     render() {
-        const {elements, fluid} = this.state;
+        const {elements, fluid, revertMargin, gap} = this.state;
         return (
             <Container fluid={fluid}>
-                <Grid>
+                <Grid revertMargin={revertMargin} gap={gap}>
                     <div>
-                        <input type='number' id='elements' value={elements} onChange={this.handleChangeInput}/>
-                        <input type='checkbox' id='fluid' onChange={this.handleChangeCheckbox} checked={fluid} />
-                        <label htmlFor='fluid'>Container fluid</label>
+                        <div>
+                            <label htmlFor='elements'>Number of columns: </label>
+                            <input type='number' id='elements' value={elements} onChange={this.handleChangeInput}/>
+                        </div>
+                        <div>
+                            <label htmlFor='gap'>Grid and rows gap: </label>
+                            <input type='number' id='gap' value={gap} onChange={this.handleChangeInput}/>
+                        </div>
+                        <div>
+                            <input type='checkbox' id='fluid' onChange={this.handleChangeCheckbox} checked={fluid} />
+                            <label htmlFor='fluid'>Container fluid </label>
+                            <input type='checkbox' id='revertMargin' onChange={this.handleChangeCheckbox} checked={revertMargin} />
+                            <label htmlFor='revertMargin'>Revert margin </label>
+                        </div>
                     </div>
-                    {Array(elements).fill('').map((e, i) => <Column index={i} />)}
+                    {Array(elements).fill('').map((e, i) => <Column index={i} gap={gap} />)}
                 </Grid>
             </Container>
         )
@@ -82,7 +95,7 @@ class Column extends Component {
                     Toggle row
                 </span>
                 {row &&
-                    <Row style={{backgroundColor: 'purple', color: 'white', padding: 10}}>
+                    <Row gap={this.props.gap} style={{backgroundColor: 'purple', color: 'white', padding: 10}}>
                         <span>This is a row (Subgrid)</span>
                         <Col xs='12' sm='6' style={{height: 80, border: '1px solid white'}}>
                             This is a col

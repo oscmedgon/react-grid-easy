@@ -2,28 +2,45 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export default class Grid extends Component {
-    render() {
-        const { className, ...rest } = this.props;
+    render () {
+        const {className, revertMargin, children, gap, ...rest} = this.props;
         const params = {
-            ...rest,
-            className: 'grid'
+            grid: {
+                ...rest,
+                className: 'grid',
+                style: {gridGap: `${gap}px`}
+            },
+            parent: {
+                className: 'grid-parent'
+            }
         };
+        if (revertMargin) {
+            params.parent.className += ' no-margin'
+        }
 
+        if (className) {
+            params.grid.className += ` ${className}-grid`;
+            params.parent.className += ` ${className}-parent`;
+        }
         return (
-            <section className={`grid-parent ${className}`}>
-                <section {...params}>
-                    {this.props.children}
+            <section {...params.parent}>
+                <section {...params.grid}>
+                    {children}
                 </section>
             </section>
         );
     }
+
     static propTypes = {
         className: PropTypes.string,
-        children: PropTypes.node.isRequired
+        children: PropTypes.node.isRequired,
+        revertMargin: PropTypes.bool,
+        gap: PropTypes.number
     };
 
     static defaultProps = {
-        className: ''
-    };
+        className: '',
+        revertMargin: false,
+        gap: 21
+    }
 }
-

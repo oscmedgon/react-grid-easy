@@ -16,7 +16,7 @@ export default class Row extends Component {
     static propTypes = {
         className: PropTypes.string,
         children: PropTypes.node.isRequired,
-        gap: PropTypes.number
+        gap: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
     };
 
     static defaultProps = {

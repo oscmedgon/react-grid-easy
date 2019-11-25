@@ -25,7 +25,7 @@ export default class App extends Component {
         const {elements, fluid, revertMargin, gap} = this.state;
         return (
             <Container fluid={fluid}>
-                <Grid revertMargin={revertMargin} gap={gap}>
+                <Grid revertMargin={revertMargin} gap={{row: gap, column: 30}} divisions={6}>
                     <div>
                         <div>
                             <label htmlFor='elements'>Number of columns: </label>

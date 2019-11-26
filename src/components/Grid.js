@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 export default class Grid extends Component {
     render () {
-        const {className, revertMargin, children, gap, column, ...rest} = this.props;
-        let divisions = parseInt(this.props.divisions, 10);
+        const {className, revertMargin, children, gap, column, divisions: shallowDiversions, vertical, columnSettings, ...rest} = this.props;
+        let divisions = parseInt(shallowDiversions, 10);
         if (!(divisions > 0 && divisions <= 20)) {
             divisions = 12;
             console.error(new Error(`The prop errors should be between 1 and 20 but got ${this.props.divisions}`));
@@ -12,7 +12,7 @@ export default class Grid extends Component {
         const params = {
             grid: {
                 ...rest,
-                className: `grid grid-${divisions}`,
+                className: `grid grid-${divisions} ${vertical ? 'vertical-grid' : ''}`,
                 style: {gridGap: `${gap}px`}
             },
             parent: {
@@ -47,7 +47,6 @@ export default class Grid extends Component {
     }
 
     static propTypes = {
-        column: PropTypes.bool,
         className: PropTypes.string,
         children: PropTypes.node.isRequired,
         revertMargin: PropTypes.bool,
@@ -59,14 +58,16 @@ export default class Grid extends Component {
                 row: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
             })
         ]),
-        divisions: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+        divisions: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        vertical: PropTypes.bool,
     };
 
     static defaultProps = {
         className: '',
         revertMargin: false,
         gap: 21,
-        column: false,
-        divisions: 12
+        vertical: false,
+        divisions: 12,
+        columnSettings: null,
     }
 }

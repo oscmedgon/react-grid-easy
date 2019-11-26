@@ -24,6 +24,12 @@
                 grid-column: span $cols
             }
             grid-template-columns: repeat($cols, 1fr);
+            &.vertical-grid {
+                grid-template-columns: unset;
+                grid-auto-columns: auto;
+                grid-auto-flow: column;
+                grid-template-rows: repeat($cols, 1fr);
+            }
             & .row {
                 display: grid;
                 grid-template-columns: repeat($cols, 1fr);
@@ -40,13 +46,26 @@
             .#{$grid-slug}-#{$span} {
                 grid-column: span $span;
             }
-        }
+            &.vertical-grid {
+                .#{$grid-slug}-#{$span} {
+                    grid-column: span 1;
+                    grid-row: span $span;
 
+                }
+            }
+        }
         /* Offset size */
         @for $span from 1 through $cols {
             $offset-slug: col-xs-offset !default;
             .#{$offset-slug}-#{$span} {
                 grid-column: span $span;
+            }
+            &.vertical-grid {
+                .#{$offset-slug}-#{$span} {
+                    grid-column: span 1;
+                    grid-row: span $span;
+
+                }
             }
         }
         @media (min-width: $tablet) {
@@ -61,13 +80,26 @@
                 .#{$grid-slug}-#{$span} {
                     grid-column: span $span;
                 }
-            }
+                &.vertical-grid {
+                    .#{$grid-slug}-#{$span} {
+                        grid-column: span 1;
+                        grid-row: span $span;
 
+                    }
+                }
+            }
             /* Offset size */
             @for $span from 1 through $cols {
                 $offset-slug: col-sm-offset !default;
                 .#{$offset-slug}-#{$span} {
                     grid-column: span $span;
+                }
+                &.vertical-grid {
+                    .#{$offset-slug}-#{$span} {
+                        grid-column: span 1;
+                        grid-row: span $span;
+
+                    }
                 }
             }
         }
@@ -85,13 +117,26 @@
                 .#{$grid-slug}-#{$span} {
                     grid-column: span $span;
                 }
-            }
+                &.vertical-grid {
+                    .#{$grid-slug}-#{$span} {
+                        grid-column: span 1;
+                        grid-row: span $span;
 
+                    }
+                }
+            }
             /* Offset size */
             @for $span from 1 through $cols {
                 $offset-slug: col-md-offset !default;
                 .#{$offset-slug}-#{$span} {
                     grid-column: span $span;
+                }
+                &.vertical-grid {
+                    .#{$offset-slug}-#{$span} {
+                        grid-column: span 1;
+                        grid-row: span $span;
+
+                    }
                 }
             }
         }
@@ -106,13 +151,26 @@
                 .#{$grid-slug}-#{$span} {
                     grid-column: span $span;
                 }
-            }
+                &.vertical-grid {
+                    .#{$grid-slug}-#{$span} {
+                        grid-column: span 1;
+                        grid-row: span $span;
 
+                    }
+                }
+            }
             /* Offset size */
             @for $span from 1 through $cols {
                 $offset-slug: col-lg-offset !default;
                 .#{$offset-slug}-#{$span} {
                     grid-column: span $span;
+                }
+                &.vertical-grid {
+                    .#{$offset-slug}-#{$span} {
+                        grid-column: span 1;
+                        grid-row: span $span;
+
+                    }
                 }
             }
         }

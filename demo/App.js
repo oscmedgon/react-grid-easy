@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import {Container, Grid, Col, Row} from '../lib'
 
 export default class App extends Component {
@@ -6,7 +6,9 @@ export default class App extends Component {
         elements: 10,
         fluid: true,
         revertMargin: false,
-        gap: 21
+        gap: 21,
+        vertical: false,
+        divisions: 12
     };
 
     handleChangeInput = ({target: {value, id}}) => {
@@ -22,29 +24,60 @@ export default class App extends Component {
     };
 
     render() {
-        const {elements, fluid, revertMargin, gap} = this.state;
+        const {elements, fluid, revertMargin, gap, vertical, divisions} = this.state;
         return (
-            <Container fluid={fluid}>
-                <Grid revertMargin={revertMargin} gap={{row: gap, column: 30}} divisions={6}>
-                    <div>
-                        <div>
-                            <label htmlFor='elements'>Number of columns: </label>
-                            <input type='number' id='elements' value={elements} onChange={this.handleChangeInput}/>
-                        </div>
-                        <div>
-                            <label htmlFor='gap'>Grid and rows gap: </label>
-                            <input type='number' id='gap' value={gap} onChange={this.handleChangeInput}/>
-                        </div>
-                        <div>
-                            <input type='checkbox' id='fluid' onChange={this.handleChangeCheckbox} checked={fluid} />
-                            <label htmlFor='fluid'>Container fluid </label>
-                            <input type='checkbox' id='revertMargin' onChange={this.handleChangeCheckbox} checked={revertMargin} />
-                            <label htmlFor='revertMargin'>Revert margin </label>
-                        </div>
+            <div>
+                <div
+                    style={{
+                        padding: 40
+                    }}
+                >
+                    <div
+                    style={{
+                        margin: '10px 0'
+                    }}
+                    >
+                        <label htmlFor='elements'>Number of columns: </label>
+                        <input type='number' id='elements' value={elements} onChange={this.handleChangeInput}/>
                     </div>
-                    {Array(elements).fill('').map((e, i) => <Column index={i} gap={gap} />)}
-                </Grid>
-            </Container>
+                    <div
+                    style={{
+                        margin: '10px 0'
+                    }}
+                    >
+                        <label htmlFor='gap'>Grid and rows gap: </label>
+                        <input type='number' id='gap' value={gap} onChange={this.handleChangeInput}/>
+                    </div>
+                    <div
+                        style={{
+                            margin: '10px 0'
+                        }}
+                    >
+                        <label htmlFor='divisions'>Grid divisions: </label>
+                        <input
+                            min='1'
+                            max='20'
+                            type='number'
+                            id='divisions'
+                            value={divisions}
+                            onChange={this.handleChangeInput}
+                        />
+                    </div>
+                    <div>
+                        <input type='checkbox' id='fluid' onChange={this.handleChangeCheckbox} checked={fluid} />
+                        <label htmlFor='fluid'>Container fluid </label>
+                        <input type='checkbox' id='revertMargin' onChange={this.handleChangeCheckbox} checked={revertMargin} />
+                        <label htmlFor='revertMargin'>Revert margin </label>
+                        <input type='checkbox' id='vertical' onChange={this.handleChangeCheckbox} checked={vertical} />
+                        <label htmlFor='vertical'>Vertical grid </label>
+                    </div>
+                </div>
+                <Container fluid={fluid}>
+                    <Grid revertMargin={revertMargin} gap={{row: gap, column: 30}} divisions={divisions} vertical={vertical}>
+                        {Array(elements).fill('').map((e, i) => <Column index={i} gap={gap} />)}
+                    </Grid>
+                </Container>
+            </div>
         )
     }
 }

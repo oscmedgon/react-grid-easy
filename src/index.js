@@ -6,6 +6,6 @@ import Container from "./components/Container";
 module.exports = {
 	Col,
 	Grid,
-	Contaner,
+	Container,
 	Row
 }

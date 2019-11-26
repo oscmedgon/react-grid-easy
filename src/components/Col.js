@@ -55,14 +55,14 @@ export default class Col extends Component {
     static propTypes = {
         className: PropTypes.string,
         children: PropTypes.node.isRequired,
-        xs: PropTypes.string,
-        sm: PropTypes.string,
-        md: PropTypes.string,
-        lg: PropTypes.string,
-        xsOffset: PropTypes.string,
-        smOffset: PropTypes.string,
-        mdOffset: PropTypes.string,
-        lgOffset: PropTypes.string
+        xs: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        sm: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        md: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        lg: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        xsOffset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        smOffset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        mdOffset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        lgOffset: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
     };
 
     static defaultProps = {

@@ -2,6 +2,9 @@
     display: flex;
     flex-wrap: wrap;
     box-sizing: content-box;
+    &.vertical-flex {
+        flex-direction: column;
+    }
     & > :not([class*="col"]) {
         width: 100%;
     }
@@ -43,84 +46,106 @@
             .#{$grid-slug}-#{$span} {
                 width: calc((100% / #{$cols}) * #{$span})
             }
+            &.vertical-flex {
+                .#{$grid-slug}-#{$span} {
+                    height: calc((100% / #{$cols}) * #{$span})
+                }
+            }
         }
-
         /* Offset size */
-
         @for $span from 1 through $cols {
             $offset-slug: col-xs-offset !default;
             .#{$offset-slug}-#{$span} {
                 width: calc((100% / #{$cols}) * #{$span})
             }
+            &.vertical-flex {
+                .#{$offset-slug}-#{$span} {
+                    height: calc((100% / #{$cols}) * #{$span})
+                }
+            }
         }
 
-        /* Small devices (tablets, 768px and up) */
         @media (min-width: $tablet) {
-            /* Column size */
+            .row {
+                justify-content: center;
+            }
             @for $span from 1 through $cols {
                 $grid-slug: col-sm !default;
                 .#{$grid-slug}-#{$span} {
                     width: calc((100% / #{$cols}) * #{$span})
                 }
+                &.vertical-flex {
+                    .#{$grid-slug}-#{$span} {
+                        height: calc((100% / #{$cols}) * #{$span})
+                    }
+                }
             }
-            /* Offset size */
-
             @for $span from 1 through $cols {
                 $offset-slug: col-sm-offset !default;
                 .#{$offset-slug}-#{$span} {
                     width: calc((100% / #{$cols}) * #{$span})
                 }
-            }
-            .row {
-                justify-content: center;
+                &.vertical-flex {
+                    .#{$offset-slug}-#{$span} {
+                        height: calc((100% / #{$cols}) * #{$span})
+                    }
+                }
             }
         }
 
-        /* Medium devices (desktops, 992px and up) */
         @media (min-width: $desktop-sm) {
             .row {
                 justify-content: space-between;
             }
-            /* Column size */
             @for $span from 1 through $cols {
                 $grid-slug: col-md !default;
                 .#{$grid-slug}-#{$span} {
                     width: calc((100% / #{$cols}) * #{$span})
                 }
+                &.vertical-flex {
+                    .#{$grid-slug}-#{$span} {
+                        height: calc((100% / #{$cols}) * #{$span})
+                    }
+                }
             }
-            /* Offset size */
-
             @for $span from 1 through $cols {
                 $offset-slug: col-md-offset !default;
                 .#{$offset-slug}-#{$span} {
                     width: calc((100% / #{$cols}) * #{$span})
                 }
+                &.vertical-flex {
+                    .#{$offset-slug}-#{$span} {
+                        height: calc((100% / #{$cols}) * #{$span})
+                    }
+                }
             }
         }
-
-        /* Large devices (large desktops, 1200px and up) */
         @media (min-width: $desktop-lg) {
-            /* Column size */
             @for $span from 1 through $cols {
                 $grid-slug: col-lg !default;
                 .#{$grid-slug}-#{$span} {
                     width: calc((100% / #{$cols}) * #{$span})
                 }
+                &.vertical-flex {
+                    .#{$grid-slug}-#{$span} {
+                        height: calc((100% / #{$cols}) * #{$span})
+                    }
+                }
             }
-            /* Offset size */
-
             @for $span from 1 through $cols {
-                $offset-slug: col-xs-offset !default;
+                $offset-slug: col-lg-offset !default;
                 .#{$offset-slug}-#{$span} {
                     width: calc((100% / #{$cols}) * #{$span})
+                }
+                &.vertical-flex {
+                    .#{$offset-slug}-#{$span} {
+                        height: calc((100% / #{$cols}) * #{$span})
+                    }
                 }
             }
         }
     }
 }
-
-/* Case xs,sm,md,lg equal to 0 */
-
 @media (min-width: $mobile-min) and (max-width: $mobile-max) {
     .col-xs-0, .col-xs-offset-0 {
         display: none;
@@ -137,7 +162,6 @@
         display: none;
     }
 }
-
 @media (min-width: $desktop-lg-min){
     .col-lg-0, .col-lg-offset-0 {
         display: none;

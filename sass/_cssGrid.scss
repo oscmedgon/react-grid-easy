@@ -1,12 +1,21 @@
 .container {
-    & .row {
+    .grid {
+        display: grid;
+        box-sizing: content-box;
+        &.vertical-grid {
+            grid-template-columns: unset;
+            grid-auto-columns: auto;
+            grid-auto-flow: column;
+        }
+    }
+    .row {
         margin: 0 -20px;
         &.no-margin {
             margin: 0;
         }
     }
     &.container-fluid {
-        & .row {
+        .row {
             margin: 0 -30px;
             &.no-margin {
                 margin: 0;
@@ -17,21 +26,15 @@
 
 @for $cols from 1 through 20 {
     .grid {
-        display: grid;
-        box-sizing: content-box;
         &.grid-#{$cols} {
             & > :not([class*="col"]) {
                 grid-column: span $cols
             }
             grid-template-columns: repeat($cols, 1fr);
             &.vertical-grid {
-                grid-template-columns: unset;
-                grid-auto-columns: auto;
-                grid-auto-flow: column;
                 grid-template-rows: repeat($cols, 1fr);
             }
             & .row {
-                display: grid;
                 grid-template-columns: repeat($cols, 1fr);
                 & > :not([class*="col"]) {
                     grid-column: span $cols
@@ -40,7 +43,6 @@
         }
     }
     .grid-#{$cols} {
-        /* Span size */
         @for $span from 1 through $cols {
             $grid-slug: col-xs !default;
             .#{$grid-slug}-#{$span} {
@@ -50,11 +52,9 @@
                 .#{$grid-slug}-#{$span} {
                     grid-column: span 1;
                     grid-row: span $span;
-
                 }
             }
         }
-        /* Offset size */
         @for $span from 1 through $cols {
             $offset-slug: col-xs-offset !default;
             .#{$offset-slug}-#{$span} {
@@ -88,7 +88,6 @@
                     }
                 }
             }
-            /* Offset size */
             @for $span from 1 through $cols {
                 $offset-slug: col-sm-offset !default;
                 .#{$offset-slug}-#{$span} {
@@ -98,13 +97,10 @@
                     .#{$offset-slug}-#{$span} {
                         grid-column: span 1;
                         grid-row: span $span;
-
                     }
                 }
             }
         }
-
-        /* Medium devices (desktops, 992px and up) */
         @media (min-width: $desktop-sm) {
             .row {
                 justify-content: space-between;
@@ -121,11 +117,9 @@
                     .#{$grid-slug}-#{$span} {
                         grid-column: span 1;
                         grid-row: span $span;
-
                     }
                 }
             }
-            /* Offset size */
             @for $span from 1 through $cols {
                 $offset-slug: col-md-offset !default;
                 .#{$offset-slug}-#{$span} {
@@ -135,13 +129,10 @@
                     .#{$offset-slug}-#{$span} {
                         grid-column: span 1;
                         grid-row: span $span;
-
                     }
                 }
             }
         }
-
-        /* Large devices (large desktops, 1200px and up) */
         @media (min-width: $desktop-lg) {
             .col-lg-0, .col-lg-offset-0 {
                 display: none;
@@ -155,11 +146,9 @@
                     .#{$grid-slug}-#{$span} {
                         grid-column: span 1;
                         grid-row: span $span;
-
                     }
                 }
             }
-            /* Offset size */
             @for $span from 1 through $cols {
                 $offset-slug: col-lg-offset !default;
                 .#{$offset-slug}-#{$span} {
@@ -169,7 +158,6 @@
                     .#{$offset-slug}-#{$span} {
                         grid-column: span 1;
                         grid-row: span $span;
-
                     }
                 }
             }

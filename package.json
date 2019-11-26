@@ -5,7 +5,7 @@
     "main": "lib/index.js",
     "repository": {
         "type": "git",
-        "url": "https://github.com/oscmedgon/react-easy-grid"
+        "url": "https://grid.devosc.com"
     },
     "private": false,
     "directories": {

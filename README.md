@@ -1,6 +1,6 @@
 
 ![npm](https://img.shields.io/npm/dt/react-grid-easy?style=flat)
-## react-lightweight-grid
+## react-grid-easy
 A React grid layout system using css grid developed by [oscmedgon][2] to be used on [React][1] projects, it's easy to implement.
 You can see and test the library at the [demo][3]
 ### Dependencies

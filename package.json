@@ -1,6 +1,6 @@
 {
     "name": "react-grid-easy",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "A react grid system using css grid",
     "main": "lib/index.js",
     "repository": {

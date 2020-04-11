@@ -30,12 +30,13 @@
             & > :not([class*="col"]) {
                 grid-column: span $cols
             }
-            grid-template-columns: repeat($cols, 1fr);
+            --template-col: calc(var(--column) - var(--gap));
+            grid-template-columns: repeat($cols, var(--template-col));
             &.vertical-grid {
                 grid-template-rows: repeat($cols, 1fr);
             }
             & .row {
-                grid-template-columns: repeat($cols, 1fr);
+                grid-template-columns: repeat($cols, var(--template-col));
                 & > :not([class*="col"]) {
                     grid-column: span $cols
                 }

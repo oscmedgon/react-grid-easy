@@ -3,17 +3,30 @@ import PropTypes from 'prop-types';
 
 export default class Col extends Component {
     render() {
+        let {
+            style,
+            className,
+            xs,
+            sm,
+            md,
+            lg,
+            xsOffset,
+            smOffset,
+            mdOffset,
+            lgOffset,
+            children,
+           ...rest
+        } = this.props;
         const params = {
             col: {
-                style: this.props.style,
-                className: this.props.className
+                ...rest,
+                style,
+                className,
             },
             offset: {
                 className: ''
             }
         };
-        const {xs, sm, md, lg} = this.props;
-        let {xsOffset, smOffset, mdOffset, lgOffset} = this.props;
         xsOffset = xsOffset || '0';
         smOffset = smOffset || xsOffset;
         mdOffset = mdOffset || smOffset || xsOffset;
@@ -47,7 +60,7 @@ export default class Col extends Component {
             <Fragment>
                 <section key='offset' {...params.offset} />
                 <section key='col' {...params.col}>
-                    {this.props.children}
+                    {children}
                 </section>
             </Fragment>
         );

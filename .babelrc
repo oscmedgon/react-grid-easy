@@ -1,6 +1,9 @@
 {
     "presets": ["@babel/preset-env", "@babel/preset-react"],
+    "compact": true,
     "plugins": [
+	// Plugins
+	"transform-es2015-modules-commonjs",
         // Stage 0
         "@babel/plugin-proposal-function-bind",
 

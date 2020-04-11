@@ -115,7 +115,7 @@ class Column extends Component {
         const {sizes, row} = this.state;
         const {index} = this.props;
         return (
-            <Col {...sizes} style={{backgroundColor: index % 2 === 0 ? 'lightgrey' : '#fafafa', padding: 40, position: 'relative'}}>
+            <Col {...sizes} style={{backgroundColor: index % 2 === 0 ? 'lightgrey' : '#fafafa', padding: 40, position: 'relative'}} data-pepe={true}>
                 <span
                     onClick={this.handleToggleRow}
                     style={{

@@ -1,6 +1,6 @@
 {
     "name": "react-grid-easy",
-    "version": "2.0.2",
+    "version": "2.1.1",
     "description": "A react grid system using css grid",
     "main": "lib/index.js",
     "repository": {
@@ -76,13 +76,13 @@
         "grunt-sass": "^3.0.2",
         "html-webpack-plugin": "^3.2.0",
         "jit-grunt": "^0.10.0",
-        "node-sass": "^4.12.0",
+        "node-sass": "^4.13.1",
         "npm-run-all": "^4.1.5",
         "react-dom": "^16.10.2",
         "style-loader": "^1.0.0",
         "transform-runtime": "0.0.0",
-        "webpack": "^4.41.1",
-        "webpack-cli": "^3.3.9",
-        "webpack-dev-server": "^3.8.2"
+        "webpack": "^4.41.6",
+        "webpack-cli": "^3.3.11",
+        "webpack-dev-server": "^3.10.3"
     }
 }

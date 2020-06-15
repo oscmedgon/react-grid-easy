@@ -27,10 +27,10 @@ export default class Col extends Component {
                 className: ''
             }
         };
-        xsOffset = xsOffset || '0';
-        smOffset = smOffset || xsOffset;
-        mdOffset = mdOffset || smOffset || xsOffset;
-        lgOffset = lgOffset || mdOffset || smOffset || xsOffset;
+        xsOffset = xsOffset ?? '0';
+        smOffset = smOffset ?? xsOffset;
+        mdOffset = mdOffset ?? smOffset ?? xsOffset;
+        lgOffset = lgOffset ?? mdOffset ?? smOffset ?? xsOffset;
 
         if (xs) {
             params.col.className += (' col-xs-' + xs);

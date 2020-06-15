@@ -1,0 +1,112 @@
+.container {
+    .grid {
+        display: grid;
+        box-sizing: content-box;
+    }
+    .row {
+        margin: 0 -20px;
+        &.no-margin {
+            margin: 0;
+        }
+    }
+    &.container-fluid {
+        .row {
+            margin: 0 -30px;
+            &.no-margin {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.grid {
+    &.grid-12 {
+        & > :not([class*="col"]) {
+            grid-column: span 12
+        }
+        grid-template-columns: repeat(12, 1fr);
+        & .row {
+            grid-template-columns: repeat(12, 1fr);
+            & > :not([class*="col"]) {
+                grid-column: span 12
+            }
+        }
+    }
+}
+.grid-12 {
+    @for $span from 1 through 12 {
+        $grid-slug: col-xs !default;
+        .#{$grid-slug}-#{$span} {
+            grid-column: span $span;
+        }
+    }
+    @for $span from 1 through 12 {
+        $offset-slug: col-xs-offset !default;
+        .#{$offset-slug}-#{$span} {
+            grid-column: span $span;
+        }
+    }
+    @media (min-width: $tablet) {
+        .row {
+            justify-content: center;
+        }
+        .col-sm-0, .col-sm-offset-0 {
+            display: none;
+        }
+        @for $span from 1 through 12 {
+            $grid-slug: col-sm !default;
+            .#{$grid-slug}-#{$span} {
+                grid-column: span $span;
+            }
+        }
+        @for $span from 1 through 12 {
+            $offset-slug: col-sm-offset !default;
+            .#{$offset-slug}-#{$span} {
+                grid-column: span $span;
+            }
+        }
+    }
+    @media (min-width: $desktop-sm) {
+        .row {
+            justify-content: space-between;
+        }
+        .col-md-0, .col-md-offset-0 {
+            display: none;
+        }
+        @for $span from 1 through 12 {
+            $grid-slug: col-md !default;
+            .#{$grid-slug}-#{$span} {
+                grid-column: span $span;
+            }
+        }
+        @for $span from 1 through 12 {
+            $offset-slug: col-md-offset !default;
+            .#{$offset-slug}-#{$span} {
+                grid-column: span $span;
+            }
+        }
+    }
+    @media (min-width: $desktop-lg) {
+        .col-lg-0, .col-lg-offset-0 {
+            display: none;
+        }
+        @for $span from 1 through 12 {
+            $grid-slug: col-lg !default;
+            .#{$grid-slug}-#{$span} {
+                grid-column: span $span;
+            }
+        }
+        @for $span from 1 through 12 {
+            $offset-slug: col-lg-offset !default;
+            .#{$offset-slug}-#{$span} {
+                grid-column: span $span;
+            }
+        }
+    }
+}
+
+@media (min-width: $mobile-min) and (max-width: $mobile-max) {
+    .col-xs-0, .col-xs-offset-0 {
+        display: none;
+    }
+}

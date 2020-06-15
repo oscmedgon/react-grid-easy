@@ -19,7 +19,9 @@ module.exports = function(grunt) {
             demo: {
                 files: {
                     'build/index.html': ['demo/index.html'],
-                    'build/main.css': ['lib/main.css']
+                    'build/all.css': ['lib/all.css'],
+                    'build/horizontal.css': ['lib/horizontal.css'],
+                    'build/standard.css': ['lib/standard.css'],
                 }
             },
             deploy: {
@@ -67,7 +69,9 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'lib/main.css': 'sass/index.scss'
+                    'lib/all.css': 'sass/all.scss',
+                    'lib/standard.css': 'sass/standard.scss',
+                    'lib/horizontal.css': 'sass/horizontal.scss',
                 }
             }
         },

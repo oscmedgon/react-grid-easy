@@ -19,12 +19,16 @@ export default class Grid extends Component {
                 className: 'grid-parent'
             }
         };
+        let columnGap;
+        params.grid.style['--column'] = `${100 / divisions}%`;
         if (['string', 'number'].includes(typeof gap)) {
             params.grid.style.gridGap = gap;
+            params.grid.style['--gap'] = `${((divisions - 1) * gap) / divisions}px`;
         } else if (typeof gap === 'object' && gap && !Array.isArray(gap)) {
             const {column = 21, row = 21} = gap;
             params.grid.style.rowGap = row;
             params.grid.style.columnGap = column;
+            params.grid.style['--gap'] = `${((divisions - 1) * column) / divisions}px`;
         } else {
             const error = new Error('Expected gap to be string, number or object.');
             console.error(error.stack)
@@ -39,7 +43,7 @@ export default class Grid extends Component {
         }
         return (
             <section {...params.parent}>
-                <section {...params.grid}>
+                <section {...params.grid} data-gap={columnGap}>
                     {children}
                 </section>
             </section>

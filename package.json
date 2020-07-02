@@ -21,9 +21,8 @@
         "noprompt": false
     },
     "scripts": {
-        "sass": "gulp sass",
         "predist": "grunt",
-        "dist": "NODE_ENV=production babel src --loose --out-dir lib",
+        "dist": "NODE_ENV=production babel src --out-dir lib",
         "predev": "npm run dist",
         "dev": "grunt serve",
         "prepublishOnly": "npm run dist",
@@ -35,8 +34,8 @@
     },
     "license": "MIT",
     "dependencies": {
-        "prop-types": "^15.7.2",
-        "react": "^16.10.2"
+        "react": "^16.10.2",
+        "styled-components": "^5.1.1"
     },
     "devDependencies": {
         "@babel/cli": "^7.6.4",
@@ -64,7 +63,6 @@
         "babel-plugin-transform-runtime": "^6.23.0",
         "babel-polyfill": "^6.26.0",
         "babelify": "^10.0.0",
-        "css-loader": "^3.2.0",
         "grunt": "^1.0.4",
         "grunt-browserify": "^5.3.0",
         "grunt-build-control": "^0.7.1",
@@ -73,16 +71,14 @@
         "grunt-contrib-connect": "^2.1.0",
         "grunt-contrib-copy": "^1.0.0",
         "grunt-contrib-watch": "^1.1.0",
-        "grunt-sass": "^3.0.2",
         "html-webpack-plugin": "^3.2.0",
         "jit-grunt": "^0.10.0",
-        "node-sass": "^4.12.0",
         "npm-run-all": "^4.1.5",
         "react-dom": "^16.10.2",
         "style-loader": "^1.0.0",
         "transform-runtime": "0.0.0",
         "webpack": "^4.41.1",
         "webpack-cli": "^3.3.9",
-        "webpack-dev-server": "^3.8.2"
+        "webpack-dev-server": "^3.11.0"
     }
 }

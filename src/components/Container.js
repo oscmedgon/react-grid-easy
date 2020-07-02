@@ -1,29 +1,40 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
 
-export default class Container extends Component {
-    render() {
-        const { className, fluid, ...rest } = this.props;
-        const params = {
-            ...rest,
-            className: `container ${className}`
-        };
+import Grid from './Grid'
 
-        if (fluid) params.className += ' container-fluid';
+const fluidSize = '30px'
+const standardSize = '20px'
+const StyledContainer = styled.section`
+    padding-left: ${props => props.fluid ? fluidSize : standardSize};
+    padding-right: ${props => props.fluid ? fluidSize : standardSize};
+`
 
-        return (
-            <section {...params} />
-        );
+export default function Container({
+    className = '',
+    children = undefined,
+    fluid = false,
+    revertMargin,
+    gap,
+    divisions,
+    vertical,
+}) {
+    const containerProps = {
+        className: `container ${className}`,
+        fluid,
     }
-    static propTypes = {
-        className: PropTypes.string,
-        children: PropTypes.node.isRequired,
-        fluid: PropTypes.bool
-    };
-
-    static defaultProps = {
-        className: '',
-        fluid: false
-    };
-}
-
+    const gridProps = {
+        className: `grid ${className}`,
+        children,
+        fluid,
+        revertMargin,
+        gap,
+        divisions,
+        vertical,
+    }
+    return (
+        <StyledContainer {...containerProps}>
+            <Grid {...gridProps}>{children}</Grid>
+        </StyledContainer>
+    );
+};

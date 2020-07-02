@@ -1,8 +1,6 @@
 'use strict';
 const path = require('path');
 
-const sass = require('node-sass');
-
 module.exports = function(grunt) {
     // Project configuration.
     // Load grunt tasks automatically, when needed
@@ -59,18 +57,18 @@ module.exports = function(grunt) {
                 }
             }
         },
-        sass: {
-            options: {
-                implementation: sass,
-                sourceMap: true,
-                outputStyle: 'compressed'
-            },
-            dist: {
-                files: {
-                    'lib/main.css': 'sass/index.scss'
-                }
-            }
-        },
+        // sass: {
+        //     options: {
+        //         implementation: sass,
+        //         sourceMap: true,
+        //         outputStyle: 'compressed'
+        //     },
+        //     dist: {
+        //         files: {
+        //             'lib/main.css': 'sass/index.scss'
+        //         }
+        //     }
+        // },
         connect: {
             dev: {
                 options: {
@@ -98,6 +96,6 @@ module.exports = function(grunt) {
     grunt.registerTask('build', ['clean:build', 'copy:demo', 'browserify']);
     grunt.registerTask('serve', ['build', 'connect', 'watch']);
     grunt.registerTask('deploy', ['build', 'copy:deploy', 'buildcontrol']);
-    grunt.registerTask('dist', ['clean:lib', 'sass']);
+    grunt.registerTask('dist', ['clean:lib']);
     grunt.registerTask('default', ['dist']);
 };

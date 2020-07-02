@@ -72,10 +72,14 @@ export default class App extends Component {
                         <label htmlFor='vertical'>Vertical grid </label>
                     </div>
                 </div>
-                <Container fluid={fluid}>
-                    <Grid revertMargin={revertMargin} gap={{row: gap, column: 30}} divisions={divisions} vertical={vertical}>
-                        {Array(elements).fill('').map((e, i) => <Column index={i} gap={gap} />)}
-                    </Grid>
+                <Container
+                    fluid={fluid}
+                    revertMargin={revertMargin}
+                    gap={{row: gap, column: 30}}
+                    divisions={divisions}
+                    vertical={vertical}
+                >
+                   {Array(elements).fill('').map((e, i) => <Column index={i} gap={gap} />)}
                 </Container>
             </div>
         )

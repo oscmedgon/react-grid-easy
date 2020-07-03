@@ -70,7 +70,7 @@ export default function Col({
     }
     return (
         <Fragment>
-            <StyledOffset key='offset' className={`col-offset ${className}`} {...offsetProps} />
+            <StyledOffset key='offset' className={`col-offset`} {...offsetProps} />
             <StyledCol key='col' className={`col ${className}`} {...colProps}>
                 {children}
             </StyledCol>

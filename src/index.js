@@ -1,6 +1,12 @@
-export Col from './components/Col';
-export Row from './components/Row';
-export Grid from './components/Grid';
-export Container from './components/Container';
+import Col from './components/Col';
+import Row from './components/Row';
+import Container from './components/Container';
 
-export * from './constants';
+import * as constants from './constants';
+
+export {
+    Col,
+    Row,
+    Container,
+    constants,
+}

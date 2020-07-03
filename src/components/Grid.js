@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function getGridSettings(gap, divisions) {
+export function getGridSettings(gap, divisions) {
     const settings = {};
     settings.column = `${100 / divisions}%`;
     if (['string', 'number'].includes(typeof gap)) {
@@ -20,16 +20,26 @@ function getGridSettings(gap, divisions) {
     return settings;
 }
 
+const StyledParent = styled.section`
+        margin-left: ${props => props.fluid ? '-30px' : '-20px'};
+        margin-right: ${props => props.fluid ? '-30px' : '-20px'};
+        padding-left: ${props => props.revertMargin ? 0 : props.fluid ? '30px' : '20px'};
+        padding-right: ${props => props.revertMargin ? 0 : props.fluid ? '30px' : '20px'};
+    }
+`
+
 const StyledGrid = styled.section`
         --gap: ${props => props.settings.gap};
         --column: ${props => props.settings.column};
+        --divisions: ${props => props.divisions};
         column-gap: ${props => props.settings.columnGap}px;
         row-gap: ${props => props.settings.rowGap}px;
         display: grid;
         box-sizing: content-box;
         grid-auto-flow: ${props => props.vertical ? 'column' : 'row'};
         grid-auto-columns: ${props => props.vertical ? 'auto' : 'unset'};
-        max-width: ${props => props.fluid ? props.maxWidth : 'unset'};
+        max-width: ${props => props.fluid ? 'unset' : `${props.maxWidth}px`};
+        margin: auto;
         & > :not([class*="col"]) {
             grid-column: span ${props => props.divisions};
         }
@@ -46,12 +56,16 @@ export default function Grid({
     vertical= false,
     divisions= 12,
     columnSettings= null,
-    maxWidth = 984
+    maxWidth = 984,
+    fluid,
 }) {
     const settings = getGridSettings(gap, divisions)
-    const props = {
+    const parentProps = {
+        revertMargin,
+        fluid,
+    }
+    const gridProps = {
         children,
-        className,
         revertMargin,
         gap,
         vertical,
@@ -59,11 +73,14 @@ export default function Grid({
         columnSettings,
         maxWidth,
         settings,
+        fluid,
     }
     return (
-        <StyledGrid {...props}>
-            {children}
-        </StyledGrid>
+        <StyledParent {...parentProps} className={`grid-parent ${className}`}>
+            <StyledGrid {...gridProps} className={`grid ${className}`}>
+                {children}
+            </StyledGrid>
+        </StyledParent>
     );
 
     // static propTypes = {

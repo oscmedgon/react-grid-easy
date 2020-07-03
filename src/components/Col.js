@@ -1,86 +1,80 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
+import React, { Fragment } from 'react';
+import styled from 'styled-components';
+import {
+    tabletMax,
+    tabletMin,
+    desktopSmMin,
+    desktopSmMax,
+    desktopLgMin
+} from '../constants';
 
-export default class Col extends Component {
-    render() {
-        let {
-            style,
-            className,
-            xs,
-            sm,
-            md,
-            lg,
-            xsOffset,
-            smOffset,
-            mdOffset,
-            lgOffset,
-            children,
-           ...rest
-        } = this.props;
-        const params = {
-            col: {
-                ...rest,
-                style,
-                className,
-            },
-            offset: {
-                className: ''
-            }
-        };
-        xsOffset = xsOffset || '0';
-        smOffset = smOffset || xsOffset;
-        mdOffset = mdOffset || smOffset || xsOffset;
-        lgOffset = lgOffset || mdOffset || smOffset || xsOffset;
-
-        if (xs) {
-            params.col.className += (' col-xs-' + xs);
-        }
-        if (sm) {
-            params.col.className += (' col-sm-' + sm);
-        }
-        if (md) {
-            params.col.className += (' col-md-' + md);
-        }
-        if (lg) {
-            params.col.className += (' col-lg-' + lg);
-        }
-        if (xsOffset) {
-            params.offset.className += (' col-xs-offset-' + xsOffset);
-        }
-        if (smOffset) {
-            params.offset.className += (' col-sm-offset-' + smOffset);
-        }
-        if (mdOffset) {
-            params.offset.className += (' col-md-offset-' + mdOffset);
-        }
-        if (lgOffset) {
-            params.offset.className += (' col-lg-offset-' + lgOffset);
-        }
-        return (
-            <Fragment>
-                <section key='offset' {...params.offset} />
-                <section key='col' {...params.col}>
-                    {children}
-                </section>
-            </Fragment>
-        );
+const StyledOffset = styled.section`
+    grid-column: span ${props => props.xsOffset};
+    display: ${props => props.xsOffset === '0' ? 'none' : 'block'}
+    @media (min-width: ${tabletMin}) and (max-width: ${tabletMax}) {
+        grid-column: span ${props => props.smOffset};
+        display: ${props => props.smOffset === '0' ? 'none' : 'block'}
     }
-    static propTypes = {
-        className: PropTypes.string,
-        children: PropTypes.node.isRequired,
-        xs: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-        sm: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-        md: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-        lg: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-        xsOffset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-        smOffset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-        mdOffset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-        lgOffset: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-    };
+    @media (min-width: ${desktopSmMin}) and (max-width: ${desktopSmMax}) {
+        grid-column: span ${props => props.mdOffset};
+        display: ${props => props.mdOffset === '0' ? 'none' : 'block'}
+    }
+    @media (min-width: ${desktopLgMin}) {
+        grid-column: span ${props => props.lgOffset};
+        display: ${props => props.lgOffset === '0' ? 'none' : 'block'}
+    }
+`;
 
-    static defaultProps = {
-        className: '',
-        xs: '12'
-    };
+const StyledCol = styled.section`
+    grid-column: span ${props => props.xs};
+    display: ${props => props.xs === '0' ? 'none' : 'block'}
+    @media (min-width: ${tabletMin}) and (max-width: ${tabletMax}) {
+        grid-column: span ${props => props.sm};
+        display: ${props => props.sm === '0' ? 'none' : 'block'}
+    }
+    @media (min-width: ${desktopSmMin}) and (max-width: ${desktopSmMax}) {
+        grid-column: span ${props => props.md};
+        display: ${props => props.md === '0' ? 'none' : 'block'}
+    }
+    @media (min-width: ${desktopLgMin}) {
+        grid-column: span ${props => props.lg};
+        display: ${props => props.lg === '0' ? 'none' : 'block'}
+    }
+     
+`
+export default function Col({
+    className,
+    xs = 'var(--divisions)',
+    sm = xs || 'var(--divisions)',
+    md = sm || xs || 'var(--divisions)',
+    lg = md || sm || xs || 'var(--divisions)',
+    xsOffset = '0',
+    smOffset = xsOffset || '0',
+    mdOffset = smOffset || xsOffset || '0',
+    lgOffset = mdOffset || smOffset || xsOffset || '0',
+    children,
+    ...rest
+}) {
+    const colProps = {
+        xs,
+        sm,
+        md,
+        lg,
+        ...rest
+    }
+    const offsetProps = {
+        xsOffset,
+        smOffset,
+        mdOffset,
+        lgOffset,
+    }
+    return (
+        <Fragment>
+            <StyledOffset key='offset' className={`col-offset ${className}`} {...offsetProps} />
+            <StyledCol key='col' className={`col ${className}`} {...colProps}>
+                {children}
+            </StyledCol>
+        </Fragment>
+    );
 }
 

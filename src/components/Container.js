@@ -24,7 +24,7 @@ export default function Container({
         fluid,
     }
     const gridProps = {
-        className: `grid ${className}`,
+        className,
         children,
         fluid,
         revertMargin,

@@ -1,6 +1,7 @@
 const babelConfig = () => (
     {
         "presets": ["@babel/preset-env", "@babel/preset-react"],
+        "module": "es6",
         "plugins": [
             // Stage 0
             "@babel/plugin-proposal-function-bind",

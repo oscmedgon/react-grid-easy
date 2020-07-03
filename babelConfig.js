@@ -1,6 +1,14 @@
 const babelConfig = () => (
     {
-        "presets": ["@babel/preset-env", "@babel/preset-react"],
+        "presets": [
+            "@babel/preset-env",
+            "@babel/preset-react",
+            {
+                "targets": {
+                    "esmodules": true
+                }
+            }
+        ],
         "module": "es6",
         "plugins": [
             // Stage 0

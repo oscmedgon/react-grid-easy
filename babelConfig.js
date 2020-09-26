@@ -2,6 +2,7 @@ const babelConfig = () => (
     {
         "presets": ["@babel/preset-env", "@babel/preset-react"],
         "plugins": [
+            "transform-react-remove-prop-types",
             // Stage 0
             "@babel/plugin-proposal-function-bind",
 

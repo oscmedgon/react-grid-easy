@@ -1,4 +1,3 @@
-import React, {Component} from 'react';
 import {Container, Grid, Col, Row} from '../lib'
 
 export default class App extends Component {
@@ -82,7 +81,7 @@ export default class App extends Component {
     }
 }
 
-class Column extends Component {
+class Column extends React.Component {
     state = {
         sizes: {
             xs: '12',

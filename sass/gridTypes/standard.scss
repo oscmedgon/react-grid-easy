@@ -24,9 +24,10 @@
         & > :not([class*="col"]) {
             grid-column: span 12
         }
-        grid-template-columns: repeat(12, 1fr);
+        --template-col: calc(var(--column) - var(--gap));
+        grid-template-columns: repeat(12, var(--template-col));
         & .row {
-            grid-template-columns: repeat(12, 1fr);
+            grid-template-columns: repeat(12, var(--template-col));
             & > :not([class*="col"]) {
                 grid-column: span 12
             }

@@ -11,9 +11,6 @@
     "directories": {
         "lib": "lib"
     },
-    "peerDependencies": {
-        "react": "^16.10.2"
-    },
     "gh-pages-deploy": {
         "staticpath": "demo/dist",
         "cname": "grid.devosc.com",
@@ -34,10 +31,6 @@
         "name": "oscmedgon"
     },
     "license": "MIT",
-    "dependencies": {
-        "prop-types": "^15.7.2",
-        "react": "^16.10.2"
-    },
     "devDependencies": {
         "@babel/cli": "^7.6.4",
         "@babel/core": "^7.6.4",
@@ -61,6 +54,7 @@
         "@babel/preset-react": "^7.6.3",
         "babel-loader": "^8.0.6",
         "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+        "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
         "babel-plugin-transform-runtime": "^6.23.0",
         "babel-polyfill": "^6.26.0",
         "babelify": "^10.0.0",
@@ -76,13 +70,14 @@
         "grunt-sass": "^3.0.2",
         "html-webpack-plugin": "^3.2.0",
         "jit-grunt": "^0.10.0",
-        "node-sass": "^4.13.1",
+        "node-sass": "^4.14.1",
         "npm-run-all": "^4.1.5",
+        "prop-types": "^15.7.2",
         "react-dom": "^16.10.2",
         "style-loader": "^1.0.0",
         "transform-runtime": "0.0.0",
         "webpack": "^4.41.6",
         "webpack-cli": "^3.3.11",
-        "webpack-dev-server": "^3.10.3"
+        "webpack-dev-server": "^3.11.0"
     }
 }

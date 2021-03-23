@@ -39,7 +39,7 @@
         "react": "^16.10.2"
     },
     "devDependencies": {
-        "@babel/cli": "^7.6.4",
+        "@babel/cli": "^7.13.10",
         "@babel/core": "^7.6.4",
         "@babel/plugin-proposal-class-properties": "^7.5.5",
         "@babel/plugin-proposal-decorators": "^7.6.0",
@@ -83,6 +83,6 @@
         "transform-runtime": "0.0.0",
         "webpack": "^4.41.6",
         "webpack-cli": "^3.3.11",
-        "webpack-dev-server": "^3.10.3"
+        "webpack-dev-server": "^3.11.2"
     }
 }
